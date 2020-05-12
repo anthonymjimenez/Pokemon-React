@@ -3,9 +3,12 @@ import PokemonList from "./PokemonList"
 import axios from "axios"
 import Pagination from './Pagination'
 import Search from './Search'
+import PokemonView from './PokemonView'
+import { Route } from 'react-router-dom';
+
 function App() {
   const [pokemon, setPokemon] = useState([])
-  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=25")
   const [nextPageUrl, setNextPageUrl ] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(true)
@@ -54,6 +57,9 @@ function App() {
     gotoNextPage = {nextPageUrl ? gotoNextPage : null }
     gotoPrevPage = {prevPageUrl ? gotoPrevPage : null }
    />
+
+  <Route path="/characters/:id" component={PokemonView} />
+
    </>
   );
 }
