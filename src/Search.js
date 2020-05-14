@@ -1,41 +1,61 @@
 import React, { useState, useEffect } from 'react';
+import PokemonListItem from './PokemonListItem'
 
-
-export default function Search({pokemon}) {
+export default function Search({pokemon, allPokemon}) {
   
     
  const [searchResults, setSearchResults] = useState([]);
+ const [searchParameters, setSearchParameters] = useState("")
  const [searchTerm, setSearchTerm] = useState("");
-  
-useEffect(() => {
-  (searchTerm === "") ? 
-    setSearchResults([])
-  :
+
+ useEffect(() => {
+  (searchTerm === "") ?
+  setSearchResults([]) :
+  (searchParameters === 'allPokemon') ? 
     setSearchResults(
-      pokemon.filter(poki => poki.toLowerCase().includes(searchTerm))
-      .map(p => p));
-  
+    allPokemon.filter(pokemon => pokemon.toLowerCase().includes(searchTerm))
+      .map(p => p))
+    : 
+    setSearchResults(
+    pokemon.filter(pokemon => pokemon.toLowerCase().includes(searchTerm))
+        .map(p => p))
   }, [searchTerm, pokemon]);
 
-  const handleChange = event => {
-    setSearchTerm(event.target.value)
-  }
+const handleTextChange = (event) => setSearchTerm(event.target.value)
+const handleSelectChange = event => setSearchParameters(event.target.value)
 
-  
   return (
+    <>
+       
+    <select onChange={handleSelectChange}>
+    <option
+        name="Search current page"
+        value="currentPokemon"
+         >
+        Search Current Page
+      </option>
+      <option
+        name="Search all Pokemon"
+        value="allPokemon"
+      >
+      Search All Pokemon
+      </option>
+  
+
+       </select>
         <div>
-             <input 
+            <input 
             type = "text"
             placeholder = "Search"
             value = {searchTerm}
-            onChange = {handleChange}
+            onChange = {handleTextChange}
             />
             {searchResults.map(item => (
-            <li>{item}</li>
+            <PokemonListItem pokemon={item}/>
             ))
             }
        
-
         </div>
+    </>
     )
 }

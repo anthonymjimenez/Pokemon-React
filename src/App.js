@@ -8,15 +8,12 @@ import { Route } from 'react-router-dom';
 
 function App() {
   const [pokemon, setPokemon] = useState([])
+  const [allPokemon, setAllPokemon] = useState([])
   const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=25")
   const [nextPageUrl, setNextPageUrl ] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(true)
-  //convert to search 
-  // send pokemon as a prop
-
-
-
+ 
   useEffect(() => {
       setLoading(true)
       let cancel
@@ -32,24 +29,28 @@ function App() {
 
   }, [currentPageUrl])
 
-  function gotoNextPage() {
-    setCurrentPageUrl(nextPageUrl)
-  }
+  useEffect(() => {
+      setLoading(true)
+      let cancel
+      axios.get('https://pokeapi.co/api/v2/pokemon/?limit=900', {
+        cancelToken: new axios.CancelToken(c => cancel = c)
+      }).then(res => {
+      setLoading(false)
+      setAllPokemon(res.data.results.map(p => p.name))
+        }).catch(console.error());
+    return () => cancel()
+  },[])
+
+  const gotoNextPage = () => setCurrentPageUrl(nextPageUrl)
+  const gotoPrevPage = () => setCurrentPageUrl(prevPageUrl)
+
+  if(loading) return 'loading...'
   
-  function gotoPrevPage() {
-    setCurrentPageUrl(prevPageUrl)
-  }
-
-    // maybe create another searchTerm so that when that state changes we can loop thru all pokemon 
-    // this useEffect would be quite different because im going to filter thru more specifications 
-    // alternative create a boolean that would tell useEffect if the searchterm is being called from the main search page or not
-
-
   return (
     <>
     <h1>PokeApi</h1>
    
-    <Search pokemon={pokemon} />
+    <Search pokemon={pokemon} allPokemon = {allPokemon}/>
    
     <PokemonList pokemon={pokemon}/>
 
@@ -58,7 +59,7 @@ function App() {
     gotoPrevPage = {prevPageUrl ? gotoPrevPage : null }
    />
 
-  <Route path="/characters/:id" component={PokemonView} />
+   <Route path="/characters/:id" component={PokemonView} />
 
    </>
   );
