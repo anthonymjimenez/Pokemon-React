@@ -2,7 +2,7 @@ import React from 'react'
 
 function Pagination({gotoNextPage, gotoPrevPage}) {
     return (
-        <div>
+        <div className = 'pageButtons'>
             {gotoPrevPage && <button onClick = {gotoPrevPage}>Previous</button>}
             {gotoNextPage && <button onClick = {gotoNextPage}>Next</button>}
         </div>

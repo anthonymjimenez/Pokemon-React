@@ -5,6 +5,7 @@ import Pagination from './Pagination'
 import Search from './Search'
 import PokemonView from './PokemonView'
 import { Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState([])
@@ -47,8 +48,8 @@ function App() {
   if(loading) return 'loading...'
   
   return (
-    <>
-    <h1>PokeApi</h1>
+    <div className ='layout'>
+    <h1 className='header'>PokeApi</h1>
    
     <Search pokemon={pokemon} allPokemon = {allPokemon}/>
    
@@ -61,7 +62,7 @@ function App() {
 
    <Route path="/characters/:id" component={PokemonView} />
 
-   </>
+   </div>
   );
 }
   

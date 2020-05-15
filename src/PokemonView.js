@@ -15,9 +15,10 @@ const CharacterView = ({ match }) => {
 const arrayCheck = (arg) => { return (Array.isArray(arg)) ? (arg) : [] }
 
   return (
-    <section className="CharacterView">
+    <>
+    <section className="pokemonView">
       <h2>{character.name}</h2>
-      <ul className="CharacterDetails">
+      <ul className="pokemonDetails">
     <li>
         <strong>Type: </strong> 
         {arrayCheck(character.types).map(({type}) => <p>{type.name}</p>)} 
@@ -30,7 +31,7 @@ const arrayCheck = (arg) => { return (Array.isArray(arg)) ? (arg) : [] }
     </li> 
     <li>
         <strong>Base Stats: </strong>
-      {arrayCheck(character.stats).map(({stat, base_stat, effort}) => 
+        {arrayCheck(character.stats).map(({stat, base_stat, effort}) => 
       <>
         <p>Stat: {stat.name}</p>
         <p>Base Stat: {base_stat}</p>
@@ -38,9 +39,10 @@ const arrayCheck = (arg) => { return (Array.isArray(arg)) ? (arg) : [] }
       </>
         )}
     </li>
-    <img src={`https://pokeres.bastionbot.org/images/pokemon/${characterID}.png`} alt="Logo" />
-      </ul>
+    </ul>
     </section>
+    <img className ='pokemonImage' src={`https://pokeres.bastionbot.org/images/pokemon/${characterID}.png`} alt="Logo" />
+  </>
     );
   };
 

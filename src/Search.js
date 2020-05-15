@@ -21,13 +21,13 @@ export default function Search({pokemon, allPokemon}) {
         .map(p => p))
   }, [searchTerm, pokemon]);
 
-const handleTextChange = (event) => setSearchTerm(event.target.value)
+const handleTextChange = event => setSearchTerm(event.target.value)
 const handleSelectChange = event => setSearchParameters(event.target.value)
 
   return (
     <>
-       
-    <select onChange={handleSelectChange}>
+    <div className = 'searchForm'>
+    <select className = 'select' onChange={handleSelectChange}>
     <option
         name="Search current page"
         value="currentPokemon"
@@ -40,11 +40,11 @@ const handleSelectChange = event => setSearchParameters(event.target.value)
       >
       Search All Pokemon
       </option>
-  
+      </select>
 
-       </select>
         <div>
             <input 
+            className = 'search'
             type = "text"
             placeholder = "Search"
             value = {searchTerm}
@@ -55,6 +55,7 @@ const handleSelectChange = event => setSearchParameters(event.target.value)
             ))
             }
        
+        </div>
         </div>
     </>
     )

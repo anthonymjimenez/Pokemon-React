@@ -1,0 +1,37 @@
+.layout {
+    display: grid;
+    grid-template-areas: "header header header"
+                         "pSearch pView pImage"
+                         "pList pView pImage"
+                         "pButtons pButtons pButtons";
+}
+.header{
+    grid-area: header;
+}
+
+.searchForm {
+    grid-area: pSearch;
+}
+.search {
+    grid-area: search;
+}
+
+.select {
+    grid-area: select; 
+}
+
+.pokemonList {
+    grid-area: pList;
+}
+
+.pokemonView {
+    grid-area: pView;
+}
+
+.pokemonImage {
+    grid-area: pImage; 
+}
+
+.pageButtons {
+    grid-area: pButtons;
+}

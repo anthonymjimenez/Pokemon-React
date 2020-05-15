@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const PokemonListItem = ({ pokemon }) => {
   return (
-    <article className="CharacterListItem">
-      <NavLink className="CharacterListItemLink" to={`/characters/${pokemon}`}>
+    <article className="pokemonListItem">
+      <NavLink className="pokemonListItemLink" to={`/characters/${pokemon}`}>
         <p>{pokemon}</p>
       </NavLink>
     </article>

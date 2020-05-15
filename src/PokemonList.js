@@ -3,7 +3,7 @@ import PokemonListItem from './PokemonListItem'
 
 const PokemonList = ({ pokemon }) => {
     return (
-        <div>
+        <div className = 'pokemonList'>
             {pokemon.map(pokemon => (
                <PokemonListItem key = {pokemon.id} pokemon={pokemon}></PokemonListItem>
             ))}
