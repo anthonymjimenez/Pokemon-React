@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { arrayCheck } from "./utils/utils";
 const CharacterView = ({ match }) => {
   const [character, setCharacter] = useState({});
   const [characterID, setID] = useState(null);
@@ -12,14 +12,13 @@ const CharacterView = ({ match }) => {
       });
   }, [match.params.id]);
 
-  const arrayCheck = (arg) => {
-    return Array.isArray(arg) ? arg : [];
-  };
-
+  if (character.types) {
+    var cType = character.types[0].type.name;
+  }
   return (
     <>
       <section className="pokemonView">
-        <h2>{character.name}</h2>
+        <h2 className={cType}>{character.name}</h2>
         <ul className="pokemonDetails">
           <li>
             <strong>Type: </strong>
