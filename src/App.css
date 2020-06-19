@@ -28,6 +28,7 @@
 }
 
 .pokemonView {
+    max-height: 30vh;
   grid-area: pView;
   display: grid;
   grid-template-areas:
