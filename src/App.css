@@ -1,4 +1,6 @@
 .layout {
+    max-width: 90%;
+    margin-left: 10%;
     display: grid;
     grid-template-areas: "header header header"
                          "pSearch pView pImage"
@@ -36,4 +38,35 @@
 
 .pageButtons {
     grid-area: pButtons;
+}
+
+.grass {
+    color: #3F9490
+}
+
+.poison {
+    color: #9D7AA4
+}
+
+.fire {
+    color: #FF0000
+}
+
+.electric {
+color: #FFDE00
+}
+
+.flying {
+    color :  #EFDBB6
+}
+
+.normal { 
+    color: gray;
+}
+.water {
+    color: aqua;
+}
+.bug {
+    color: #5F9569
+
 }
