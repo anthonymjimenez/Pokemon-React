@@ -1,72 +1,89 @@
 .layout {
-    max-width: 90%;
-    margin-left: 10%;
-    display: grid;
-    grid-template-areas: "header header header"
-                         "pSearch pView pImage"
-                         "pList pView pImage"
-                         "pButtons pButtons pButtons";
+  max-width: 90%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "pSearch pView pImage"
+    "pList pView pImage"
+    "pButtons pButtons pButtons";
 }
-.header{
-    grid-area: header;
+.header {
+  grid-area: header;
 }
 
 .searchForm {
-    grid-area: pSearch;
+  grid-area: pSearch;
 }
 .search {
-    grid-area: search;
+  grid-area: search;
 }
 
 .select {
-    grid-area: select; 
+  grid-area: select;
 }
 
 .pokemonList {
-    grid-area: pList;
+  grid-area: pList;
 }
 
 .pokemonView {
-    grid-area: pView;
+  grid-area: pView;
+  display: grid;
+  grid-template-areas:
+    "pName pName"
+    "type measure"
+    "stats stats";
+}
+.pName {
+  grid-area: pName;
+}
+.type {
+  grid-area: type;
+}
+.measurements {
+  grid-area: measure;
+}
+.stats {
+  grid-area: stats;
 }
 
 .pokemonImage {
-    grid-area: pImage; 
-    max-width: 500px;
-    max-height: 500px;
+  grid-area: pImage;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .pageButtons {
-    grid-area: pButtons;
+  grid-area: pButtons;
 }
 
 .grass {
-    color: #3F9490
+  color: #3f9490;
 }
 
 .poison {
-    color: #9D7AA4
+  color: #9d7aa4;
 }
 
 .fire {
-    color: #FF0000
+  color: #ff0000;
 }
 
 .electric {
-color: #FFDE00
+  color: #ffde00;
 }
 
 .flying {
-    color :  #EFDBB6
+  color: #efdbb6;
 }
 
-.normal { 
-    color: gray;
+.normal {
+  color: gray;
 }
 .water {
-    color: aqua;
+  color: aqua;
 }
 .bug {
-    color: #5F9569
-
+  color: #5f9569;
 }

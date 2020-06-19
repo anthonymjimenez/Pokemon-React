@@ -18,20 +18,23 @@ const CharacterView = ({ match }) => {
   return (
     <>
       <section className="pokemonView">
-        <h2 className={cType}>{character.name}</h2>
-        <ul className="pokemonDetails">
-          <li>
+        <div className="pName">
+        <h2 className={cType}>{character.name}</h2></div>
+          <li className="type">
             <strong>Type: </strong>
             {arrayCheck(character.types).map(({ type }) => (
               <p className={type.name}>{type.name}</p>
             ))}
           </li>
-          <li>
+          <div className="measurements">
+          <li >
             <strong>Height</strong>: {character.height}
           </li>
           <li>
             <strong>Weight</strong>: {character.weight}
           </li>
+          </div>
+          <div className="stats">
           <li>
             <strong>Base Stats: </strong> <br />
             {arrayCheck(character.stats).map(({ stat, base_stat, effort }) => (
@@ -44,7 +47,7 @@ const CharacterView = ({ match }) => {
               </>
             ))}
           </li>
-        </ul>
+          </div>
       </section>
       <img
         className="pokemonImage"
