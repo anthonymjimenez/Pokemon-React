@@ -20,7 +20,7 @@ export default function Search({ pokemon, allPokemon }) {
             .filter((pokemon) => pokemon.toLowerCase().includes(searchTerm))
             .map((p) => p)
         );
-  }, [searchTerm, pokemon]);
+  }, [searchTerm, pokemon, allPokemon, searchParameters]);
 
   const handleTextChange = (event) => setSearchTerm(event.target.value);
   const handleSelectChange = (event) => setSearchParameters(event.target.value);
