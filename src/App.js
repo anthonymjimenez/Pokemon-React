@@ -56,11 +56,9 @@ function App() {
       {!loading ? (
         <>
           <SortBy pokemon={pokemon} setPokemon={setPokemon} />
-          <Search
-            pokemon={pokemon.map(({ name }) => name)}
-            setPokemon={setPokemon}
-          />
+          <Search pokemon={pokemon.map(({ name }) => name)} />
           <PokemonList pokemon={pokemon.map(({ name }) => name)} />
+
           <Pagination
             gotoNextPage={nextPageUrl ? gotoNextPage : null}
             gotoPrevPage={prevPageUrl ? gotoPrevPage : null}

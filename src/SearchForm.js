@@ -15,13 +15,13 @@ export default function SearchForm({ setSearchParameters }) {
         }}
       >
         <option name="Search current page" value="currentPokemon">
-          Search Current Page
+          View Current Page
         </option>
         <option name="Search current page" value="1stGenPokemon">
-          Search First Generation Pokemon
+          View First Generation Pokemon
         </option>
         <option name="Search all Pokemon" value="allPokemon">
-          Search All Pokemon
+          View All Pokemon
         </option>
       </select>
     </div>

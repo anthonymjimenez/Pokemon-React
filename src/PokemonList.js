@@ -1,7 +1,7 @@
 import React from "react";
 import PokemonListItem from "./PokemonListItem";
 
-const PokemonList = ({ pokemon }) => {
+const PokemonList = ({ pokemon, searchResults }) => {
   return (
     <div className="pokemonList">
       {pokemon.map((pokemon) => (
