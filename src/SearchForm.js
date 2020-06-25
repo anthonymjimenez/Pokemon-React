@@ -3,6 +3,7 @@ import React from "react";
 export default function SearchForm({ setSearchParameters }) {
   return (
     <div className="searchForm">
+      <label>View By: </label>
       <select
         className="select"
         onChange={(event) => {
@@ -15,13 +16,13 @@ export default function SearchForm({ setSearchParameters }) {
         }}
       >
         <option name="Search current page" value="currentPokemon">
-          View Current Page
+          Current Page
         </option>
         <option name="Search current page" value="1stGenPokemon">
-          View First Generation Pokemon
+          First Generation Pokemon
         </option>
         <option name="Search all Pokemon" value="allPokemon">
-          View All Pokemon
+          All Pokemon
         </option>
       </select>
     </div>

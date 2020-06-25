@@ -1,14 +1,16 @@
 .layout {
   max-width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
   display: grid;
   grid-template-areas:
-    "header header header header"
-    "pSort pSort pSearch search" 
-    "pList pView pImage searchResults"
-    "pList pView pImage searchResults"
-    "pButtons pButtons pButtons pButtons";
+    "header header header"
+    "pSearch pSearch pSearch" 
+    "search search search"
+    "pSort pSort pSort"
+    "searchResults pView pImage "
+    "pList pView pImage"
+    "pButtons pButtons pButtons";
 }
 .header {
   grid-area: header;
@@ -16,6 +18,8 @@
 }
 .searchResults {
   grid-area: searchResults;
+  font-size: 15px;
+
 }
 .sortForm {
   grid-area: pSort;
@@ -25,6 +29,9 @@
 }
 .search {
   grid-area: search;
+  max-width: 16.5vh;
+  font-size: 15px;
+  margin-bottom: 1%;
 }
 
 .select {
@@ -36,8 +43,8 @@
 }
 
 .pokemonView {
-  margin-top: 20%;
-  margin-left: 20%;
+  margin-top: 10%;
+  margin-left: 0%;
   max-height: 30vh;
   grid-area: pView;
   display: grid;
@@ -61,11 +68,10 @@
 }
 
 .pokemonImage {
-  margin-top: 15%;
+  margin-top: 10%;
   grid-area: pImage;
-  width: 450px;
-  height: 450px;
-
+  width: 600px;
+  height: 600px;
 }
 .pokemonListItemLink {
   color: black;
@@ -73,6 +79,7 @@
   border: 1px solid rebeccapurple;
   display: block;
   padding: 0.5em;
+  width: 200px;
 }
 .pokemonListItem {
   padding: 0.5em;
