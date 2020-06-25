@@ -1,17 +1,24 @@
 .layout {
   max-width: 90%;
   margin-left: 10%;
+  margin-right: 15%;
   display: grid;
   grid-template-areas:
-    "header header header"
-    "pSearch pView pImage"
-    "pList pView pImage"
-    "pButtons pButtons pButtons";
+    "header header header header"
+    "pSearch pSort pSort search" 
+    "pSearch pView pImage searchResults"
+    "pList pView pImage searchResults"
+    "pButtons pButtons pButtons pButtons";
 }
 .header {
   grid-area: header;
 }
-
+.searchResults {
+  grid-area: searchResults;
+}
+.sortForm {
+  grid-area: pSort;
+}
 .searchForm {
   grid-area: pSearch;
 }
@@ -66,7 +73,12 @@
 .poison {
   color: #9d7aa4;
 }
-
+.fighting {
+  color: burlywood;
+}
+.psychic {
+  color: rebeccapurple;
+}
 .fire {
   color: #ff0000;
 }
