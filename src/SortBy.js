@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function SortBy({ pokemon, setPokemon }) {
-  const [lastSort, setLastSort] = useState("");
   const [buttonName, setButtonName] = useState("Ascending");
   function handleSelectChange(e) {
-    setLastSort(e.target.value);
     if (e.target.value === "name") {
       setPokemon([...pokemon].sort((a, b) => (a.name > b.name ? 1 : -1)));
     } else if (e.target.value === "order" || e.target.value === "") {
@@ -20,9 +18,7 @@ export default function SortBy({ pokemon, setPokemon }) {
     buttonName === "Ascending"
       ? setButtonName("Descending")
       : setButtonName("Ascending");
-    setPokemon(
-      [...pokemon].sort((a, b) => (!a.lastSort > b.lastSort ? 1 : -1))
-    );
+    setPokemon([...pokemon].sort((a, b) => (!a > b ? 1 : -1)));
   }
   return (
     <>
