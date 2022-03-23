@@ -18,6 +18,7 @@ export default function SortBy({ pokemon, setPokemon }) {
     buttonName === "Ascending"
       ? setButtonName("Descending")
       : setButtonName("Ascending");
+    console.log("Hello");
     setPokemon([...pokemon].sort((a, b) => (!a > b ? 1 : -1)));
   }
   return (
@@ -37,9 +38,7 @@ export default function SortBy({ pokemon, setPokemon }) {
             Sort By Weight
           </option>
         </select>
-        <button onClick={toggleOrder} name="Yo">
-          {buttonName}
-        </button>
+        <button onClick={toggleOrder}>{buttonName}</button>
       </div>
     </>
   );
